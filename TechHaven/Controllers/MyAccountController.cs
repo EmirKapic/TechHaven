@@ -13,7 +13,7 @@ namespace TechHaven.Controllers
         {
             return View();
         }
-        
+
         public IActionResult Wishlist()
         {
             return View();

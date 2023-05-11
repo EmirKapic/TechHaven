@@ -35,10 +35,10 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"); //return this to controller home when work is finished
-app.MapRazorPages();
+
 
 app.Run();

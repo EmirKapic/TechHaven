@@ -6,7 +6,7 @@ namespace TechHaven.Models
     {
         public int OrderId { get; set; }
         public List<Product> Products { get; set; }
-        
+
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
