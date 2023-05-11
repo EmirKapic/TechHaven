@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TechHaven.Controllers
 {
+    [Authorize]
     public class MyAccountController : Controller
     {
         public IActionResult Index()
