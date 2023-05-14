@@ -2,6 +2,6 @@
 {
     public interface User
     {
-        public ShoppingCart ShoppingCart { get; set; }
+        public ShoppingCart? ShoppingCart { get; set; }
     }
 }
