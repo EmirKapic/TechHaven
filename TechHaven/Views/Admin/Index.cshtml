@@ -1,0 +1,372 @@
+﻿<style>
+    .preview-images-zone {
+        width: 100%;
+        border: 1px solid #ddd;
+        min-height: 180px;
+        /* display: flex; */
+        padding: 5px 5px 0px 5px;
+        position: relative;
+        overflow: auto;
+    }
+
+        .preview-images-zone > .preview-image:first-child {
+            height: 185px;
+            width: 185px;
+            position: relative;
+            margin-right: 5px;
+        }
+
+        .preview-images-zone > .preview-image {
+            height: 90px;
+            width: 90px;
+            position: relative;
+            margin-right: 5px;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+            .preview-images-zone > .preview-image > .image-zone {
+                width: 100%;
+                height: 100%;
+            }
+
+                .preview-images-zone > .preview-image > .image-zone > img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+            .preview-images-zone > .preview-image > .tools-edit-image {
+                position: absolute;
+                z-index: 100;
+                color: #fff;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+                display: none;
+            }
+
+            .preview-images-zone > .preview-image > .image-cancel {
+                font-size: 18px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-weight: bold;
+                margin-right: 10px;
+                cursor: pointer;
+                display: none;
+                z-index: 100;
+            }
+
+    .preview-image:hover > .image-zone {
+        cursor: move;
+        opacity: .5;
+    }
+
+    .preview-image:hover > .tools-edit-image,
+    .preview-image:hover > .image-cancel {
+        display: block;
+    }
+
+    .ui-sortable-helper {
+        width: 90px !important;
+        height: 90px !important;
+    }
+</style>
+
+<div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+    <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+        <svg class="bi" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+            <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                <svg class="bi" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"></use></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                <svg class="bi" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"></use></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                <svg class="bi" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"></use></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                <svg class="bi" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"></use></svg>
+            </a>
+        </li>
+    </ul>
+    <div class="dropdown border-top">
+        <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3" style="">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row mt-0">
+<div class="col-lg-6 mb-0 mb-lg-0">
+    <!-- DodajProizvod Card -->
+    <div class="card mb-0 mb-lg-5">
+
+    <div class="card-header">
+        <h4 class="card-header-title">Dodajte proizvod</h4>
+    </div>
+    
+    <div class="card-body">
+        <div class="mb-4">
+        <label for="productNameLabel" class="form-label">Naziv</label>
+        <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="iPhone X, Samsung Galaxy S22, etc.">
+        </div>
+
+        <div class="row">
+            <div class="mb-4">
+            <label class="form-label">Cijena</label>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="0.0 BAM" aria-label="0.0">
+            </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <label class="form-label">Opis</label>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="The iPhone X was Apple's flagship 10th annivers..." aria-label="0.00">
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="form-group">
+                <label class="form-label">Kategorija</label>
+                <div class="col-md-6">
+                    <select class="form-control" id="ddlCategory">
+                        <option value="">Mobiteli</option>
+                        <option value="1">Laptopi</option>
+                        <option value="2">Tableti</option>
+                        <option value="3">...</option>
+                    </select><br />
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group">
+                <label class="form-label">Proizvođač</label>
+                <div class="col-md-6">
+                    <select class="form-control" id="ddlCategory">
+                        <option value="">Apple</option>
+                        <option value="1">Samsung</option>
+                        <option value="2">HP</option>
+                        <option value="3">...</option>
+                    </select><br />
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Upload -->
+        <fieldset class="form-group">
+            <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
+            <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
+        </fieldset>
+        <div class="preview-images-zone">
+            <div class="preview-image preview-show-1">
+                <div class="image-cancel" data-no="1">x</div>
+                <div class="image-zone"><img id="pro-img-1" src="https://www.simply.ca/cdn/shop/products/iPhone_13_Pro_Max_Alpine_Green_Pure_Back_iPhone_13_Pro_Max_Alpine_Green_Pure_Front_2-up_Screen__USEN_1024x1024.png?v=1647024631"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+            <div class="preview-image preview-show-2">
+                <div class="image-cancel" data-no="2">x</div>
+                <div class="image-zone"><img id="pro-img-2" src="https://www.univerzalno.com/wp-content/uploads/2021/10/iphone13pro-1.jpg"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="2" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+            <div class="preview-image preview-show-3">
+                <div class="image-cancel" data-no="3">x</div>
+                <div class="image-zone"><img id="pro-img-3" src="https://fontele.ba/media/catalog/product/cache/6b7de13af6dc0ec4fabe2d363e9fc6b9/i/p/iphone_13_pro_128_gold_5_1_1.jpg.mst.webp"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="3" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 10px; float: right;">Dodaj</button>
+    </div>
+    </div>
+    <!-- End Card -->
+
+    <div class="card mb-0 mb-lg-5">
+    <div class="card-header">
+    <h4 class="my-0 mb-0">Promijeni lozinku</h4>
+    </div>
+    <div class="card-body">
+    <div class="">
+            <form>
+                <div class="form-group mb-3">
+                    <h6>Stara lozinka</h6>
+                    <input type="password" class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <h6>Nova lozinka</h6>
+                    <input type="password" class="form-control" />
+                </div>
+                <button class="btn btn-primary">Sačuvaj promjene</button>
+            </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<div class="col-lg-6 mb-3 mb-lg-0">
+    <!-- IzmjeniProizvod Card -->
+    <div class="card mb-0 mb-lg-5">
+    <div class="card-header">
+        <h4 class="card-header-title">Izmjeni proizvod</h4>
+    </div>
+    <div class="card-body">
+        
+            
+                <div class="border border-secondary-subtle rounded p-3">
+                    <h5 class="text-center mb-3">Odaberite artikal za izmjenu</h5>
+                    <input type="text" class="form-control" placeholder="Pretraga" style="margin-bottom: 20px;">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Artikal</h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center p-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Odaberi</a>
+                                    <small class="text-body-secondary">$9.99</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Artikal</h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center p-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Odaberi</a>
+                                    <small class="text-body-secondary">$9.99</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Artikal</h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center p-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Odaberi</a>
+                                    <small class="text-body-secondary">$9.99</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Artikal</h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center p-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Odaberi</a>
+                                    <small class="text-body-secondary">$9.99</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <label for="productNameLabel" class="form-label" style="margin-top: 20px;">Naziv</label>
+            <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Odaberite artikal">
+        
+
+        <div class="row">
+            <div class="mb-4">
+            <label for="weightLabel" class="form-label" style="margin-top: 20px;">Cijena</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="Odaberite artikal" aria-label="0.0">
+            </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <label class="form-label">Opis</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="priceName" id="priceNameLabel" placeholder="Odaberite artikal" aria-label="0.00">
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="form-group">
+                <label class="form-label">Kategorija</label>
+                <div class="col-md-6">
+                    <select class="form-control" id="ddlCategory">
+                        <option value="">Odaberite artikal</option>
+                        <option value="1">Laptopi</option>
+                        <option value="2">Tableti</option>
+                        <option value="3">...</option>
+                    </select><br />
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group">
+                <label class="form-label">Proizvođač</label>
+                <div class="col-md-6">
+                    <select class="form-control" id="ddlCategory">
+                        <option value="">Odaberite artikal</option>
+                        <option value="1">Samsung</option>
+                        <option value="2">HP</option>
+                        <option value="3">...</option>
+                    </select><br />
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Upload -->
+        <fieldset class="form-group">
+            <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
+            <input type="file" id="pro-image" name="pro-image" style="display: none;" class="form-control" multiple>
+        </fieldset>
+        <div class="preview-images-zone">
+            <div class="preview-image preview-show-1">
+                <div class="image-cancel" data-no="1">x</div>
+                <div class="image-zone"><img id="pro-img-1" src="https://www.simply.ca/cdn/shop/products/iPhone_13_Pro_Max_Alpine_Green_Pure_Back_iPhone_13_Pro_Max_Alpine_Green_Pure_Front_2-up_Screen__USEN_1024x1024.png?v=1647024631"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="1" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+            <div class="preview-image preview-show-2">
+                <div class="image-cancel" data-no="2">x</div>
+                <div class="image-zone"><img id="pro-img-2" src="https://www.univerzalno.com/wp-content/uploads/2021/10/iphone13pro-1.jpg"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="2" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+            <div class="preview-image preview-show-3">
+                <div class="image-cancel" data-no="3">x</div>
+                <div class="image-zone"><img id="pro-img-3" src="https://fontele.ba/media/catalog/product/cache/6b7de13af6dc0ec4fabe2d363e9fc6b9/i/p/iphone_13_pro_128_gold_5_1_1.jpg.mst.webp"></div>
+                <div class="tools-edit-image"><a href="javascript:void(0)" data-no="3" class="btn btn-light btn-edit-image">edit</a></div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-danger" style="margin-top: 10px; float: right;">Obriši artikal</button>
+        <button class="btn btn-primary" style="margin-top: 10px; margin-right: 20px; float: right;">Sačuvaj izmjene</button>
+    </div>
+    </div>
+    <!-- End Card -->
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/ImageUpload.css">
+</div>

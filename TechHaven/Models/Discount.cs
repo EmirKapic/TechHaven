@@ -5,15 +5,15 @@ namespace TechHaven.Models
     [NotMapped]
     public class Discount
     {
-        public int DiscountId { get; set; }
+        public int ID { get; set; }
         public List<Product> Products { get; set; }
         public int NumberOfHavenCoins { get; set; }
         public double AdditionalDiscount { get; set; }
         public double TotalDiscount { get; set; }
 
-        public Discount(int discountId, List<Product> products, int numberOfHavenCoins, double additionalDiscount, double totalDiscount)
+        public Discount(int id, List<Product> products, int numberOfHavenCoins, double additionalDiscount, double totalDiscount)
         {
-            DiscountId = discountId;
+            ID = id;
             Products = products;
             NumberOfHavenCoins = numberOfHavenCoins;
             AdditionalDiscount = additionalDiscount;

@@ -1,8 +1,12 @@
-﻿namespace TechHaven.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TechHaven.Models
 {
     public class ShoppingCart
     {
-        public int ShoppingCartId { get; set; }
+        [Key]
+        public int Id { get; set; }
         private List<Product> products = new List<Product>();
         private double totalPrice;
 
