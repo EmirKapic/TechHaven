@@ -8,15 +8,15 @@ namespace TechHaven.Models
     {
         [Key]
         override public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int NumberOfHavenCoins { get; set; }
-        [NotMapped]
-        public ShoppingCart ShoppingCart { get; set; }
-        [NotMapped]
-        public List<Product> Wishlist { get; set; }
-        [NotMapped]
-        public List<Order> Orders { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public int? NumberOfHavenCoins { get; set; }
+
+        public ShoppingCart? ShoppingCart { get; set; }
+
+        public List<Product>? Wishlist { get; set; }
+
+        public List<Order>? Orders { get; set; }
 
         public Customer() { }
     }

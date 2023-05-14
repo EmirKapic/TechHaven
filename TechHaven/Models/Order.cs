@@ -12,9 +12,7 @@ namespace TechHaven.Models
         public string CustomerId { get; set; }
         public Customer Customer { get; set; }
 
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public List<Product> Products { get; set; }
 
         public int Price { get; set; }
         public string ShippingAddress { get; set; }
